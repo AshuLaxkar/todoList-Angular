@@ -1,0 +1,16 @@
+<!-- <div class="container mt-4" *ngIf="todo">
+    <h2 title </h2>
+    <p>Description</p>
+    <p>Due Date: {{ dueDate | date:'mediumDate' }}</p>
+    <p>Completed: {{ completed ? 'Yes' : 'No' }}</p>
+  </div>
+   -->
+
+   <!-- <h2>Title : {{todo.title}}</h2> -->
+   <div class="container mt-4" *ngIf="todo">
+    <h2>{{ todo.title }}</h2>
+    <p>Description: {{ todo.description }}</p>
+    <p>Due Date: {{ todo.dueDate | date:'mediumDate' }}</p>
+    <p>Completed: {{ todo.completed ? 'Yes' : 'No' }}</p>
+  </div>
+  
