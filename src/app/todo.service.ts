@@ -68,46 +68,49 @@ export class TodoService {
     return this.http.delete<void>(this.apiUrl + `todos/${id}`);
   }
 
+login(data:any):Observable<any>{
+  return this.http.post<any>(`http://localhost:8080/auth/login`,data);
 
-
-  authenticate(username: string, password : string){
-    // console.log('before ' + this.isUserLoggedIn());
-    
-    if(username ==='ashu' && password === 'admin'){
-      sessionStorage.setItem('authenticaterUser',username);
-      // console.log('after ' + this.isUserLoggedIn());
-      return true;
-    }else{
-      return false;
-    }
-    
-  }
-
-  isUserLoggedIn(){
-    let user = sessionStorage.getItem('authenticaterUser');
-    return !(user == null)
-  }
-
-  logout(){
-    sessionStorage.removeItem('authenticaterUser');
-  }
-
-exeuteTodoServiceWithPAthVariable(){
-  let basicAuthHeaderString = this.createBasicAuthenticationHttpHeader();
-  
-  let headers = new HttpHeaders({
-    Authorization: basicAuthHeaderString
-  })
-
-  return this.http.get<Todo[]>(this.apiUrl,{headers});
 }
 
+//   authenticate(username: string, password : string){
+//     // console.log('before ' + this.isUserLoggedIn());
+    
+//     if(username ==='ashu' && password === 'admin'){
+//       sessionStorage.setItem('authenticaterUser',username);
+//       // console.log('after ' + this.isUserLoggedIn());
+//       return true;
+//     }else{
+//       return false;
+//     }
+    
+//   }
 
-    createBasicAuthenticationHttpHeader(){
-      let username = 'ashu';
-      let password = 'admin';
-      let basicAuthHeaderString = 'Basic' + window.btoa(username + ':' + password);
-      return basicAuthHeaderString;
-    }
+//   isUserLoggedIn(){
+//     let user = sessionStorage.getItem('authenticaterUser');
+//     return !(user == null)
+//   }
+
+//   logout(){
+//     sessionStorage.removeItem('authenticaterUser');
+//   }
+
+// exeuteTodoServiceWithPAthVariable(){
+//   let basicAuthHeaderString = this.createBasicAuthenticationHttpHeader();
+  
+//   let headers = new HttpHeaders({
+//     Authorization: basicAuthHeaderString
+//   })
+
+//   return this.http.get<Todo[]>(this.apiUrl,{headers});
+// }
+
+
+//     createBasicAuthenticationHttpHeader(){
+//       let username = 'ashu';
+//       let password = 'admin';
+//       let basicAuthHeaderString = 'Basic' + window.btoa(username + ':' + password);
+//       return basicAuthHeaderString;
+//     }
 
 }
